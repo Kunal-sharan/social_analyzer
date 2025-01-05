@@ -49,7 +49,7 @@ if st.button("Send") and user_input.strip():
     st.session_state.chat_history.append(("Chatbot", response, datetime.now().strftime("%H:%M:%S")))
 
     # Clear the text input after submission
-    st.experimental_rerun()
+    st.rerun()
 
 # Analytics Section
 def load_data(file_path):
