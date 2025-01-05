@@ -32,6 +32,7 @@ def chatbot_response(user_input):
         "Memory-Ml6IC": {},
         "RecursiveCharacterTextSplitter-hJufx": {}
     }
+   }    
    response = requests.post(url, headers=headers, json=data)
    result = response.json()
    ans=result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
@@ -79,18 +80,6 @@ if st.button("Send") and user_input.strip():
 
     # Auto-scroll to the bottom by refreshing the container
     st.rerun()
-
-# Example POST API call usage
-st.sidebar.header("Test API Call")
-api_url = st.sidebar.text_input("API URL", "https://example.com/api")
-payload = st.sidebar.text_area("Payload (JSON)", "{\"key\": \"value\"}")
-if st.sidebar.button("Call API"):
-    try:
-        payload_dict = eval(payload)  # Convert string to dictionary
-        api_response = post_api_call(api_url, payload_dict)
-        st.sidebar.write("Response:", api_response)
-    except Exception as e:
-        st.sidebar.write("Error:", str(e))
 
 # Analytics Section
 def load_data(file_path):
