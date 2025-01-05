@@ -12,25 +12,6 @@ headers = {
     'Authorization': 'Bearer AstraCS:SWPvsgLIyitBvvTeeHJRMlBH:f8f090e3ac68a43bbe65c78c6e470c67c25e76451d80399b6a5141d129191a5b'
 }
 
-data = {
-    "input_value": "better engagement rate",
-    "output_type": "chat",
-    "input_type": "chat",
-    "tweaks": {
-        "ChatInput-JCzea": {},
-        "ParseData-Vqvlh": {},
-        "Prompt-YQ0MX": {},
-        "ChatOutput-UUU35": {},
-        "AstraDB-436Kc": {},
-        "AstraDB-3Huko": {},
-        "File-BMkha": {},
-        "GroqModel-zgAaN": {},
-        "Memory-Ml6IC": {},
-        "RecursiveCharacterTextSplitter-hJufx": {}
-    }
-}
-
-response = requests.post(url, headers=headers, json=data)
 
 # Define a function to handle chatbot responses
 def chatbot_response(user_input):
