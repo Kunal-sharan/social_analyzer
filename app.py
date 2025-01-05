@@ -1,8 +1,55 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import streamlit as st
+from datetime import datetime
 
-# Load data
+# Define a function to handle chatbot responses
+def chatbot_response(user_input):
+    # Simple predefined responses (you can extend this logic or integrate an AI model)
+    responses = {
+        "hi": "Hello! How can I assist you today?",
+        "hello": "Hi there! What can I do for you?",
+        "how are you": "I'm just a bot, but I'm functioning as expected. How about you?",
+        "bye": "Goodbye! Have a great day!",
+    }
+
+    # Check for response or default to a fallback
+    return responses.get(user_input.lower(), "I'm not sure how to respond to that. Can you rephrase?")
+
+# Streamlit app configuration
+st.set_page_config(page_title="Chatbot", page_icon="🤖", layout="centered")
+
+# App title
+st.title("🤖 Simple Streamlit Chatbot")
+
+# Initialize session state for chat history if it doesn't exist
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+# Display chat history
+st.write("### Chat History")
+for message in st.session_state.chat_history:
+    sender, text, timestamp = message
+    st.markdown(f"**{sender}** ({timestamp}): {text}")
+
+# User input
+user_input = st.text_input("You:", "", key="user_input")
+
+# If the user submits input
+if st.button("Send") and user_input.strip():
+    # Add user message to chat history
+    st.session_state.chat_history.append(("You", user_input, datetime.now().strftime("%H:%M:%S")))
+
+    # Generate chatbot response
+    response = chatbot_response(user_input)
+
+    # Add chatbot response to chat history
+    st.session_state.chat_history.append(("Chatbot", response, datetime.now().strftime("%H:%M:%S")))
+
+    # Clear the text input after submission
+    st.rerun()
+
 def load_data(file_path):
     return pd.read_csv(file_path)
 
