@@ -3,30 +3,32 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime
 import requests
+from langflow.load import run_flow_from_json
+TWEAKS = {
+  "ChatInput-JCzea": {},
+  "ParseData-Vqvlh": {},
+  "Prompt-YQ0MX": {},
+  "ChatOutput-UUU35": {},
+  "AstraDB-436Kc": {},
+  "AstraDB-3Huko": {},
+  "File-BMkha": {},
+  "GroqModel-zgAaN": {},
+  "Memory-Ml6IC": {},
+  "RecursiveCharacterTextSplitter-hJufx": {}
+}
 
 # Define a function to handle chatbot responses
 def chatbot_response(user_input):
     # Simple predefined responses (you can extend this logic or integrate an AI model)
-    responses = {
-        "hi": "Hello! How can I assist you today?",
-        "hello": "Hi there! What can I do for you?",
-        "how are you": "I'm just a bot, but I'm functioning as expected. How about you?",
-        "bye": "Goodbye! Have a great day!",
-    }
+    result = run_flow_from_json(flow="Vector Store RAG.json",
+                            input_value=user_input, # provide a session id if you want to use session state
+                            fallback_to_env_vars=True, # False by default
+                            tweaks=TWEAKS)
 
     # Check for response or default to a fallback
-    return responses.get(user_input.lower(), "I'm not sure how to respond to that. Can you rephrase?")
+    return result
 
 # Function to make a POST API call
-def post_api_call(api_url, payload):
-    try:
-        response = requests.post(api_url, json=payload)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            return {"error": f"API call failed with status code {response.status_code}"}
-    except Exception as e:
-        return {"error": str(e)}
 
 # Streamlit app configuration
 st.set_page_config(page_title="Chatbot & Analytics Dashboard", page_icon="🤖", layout="wide")
@@ -58,11 +60,9 @@ if st.button("Send") and user_input.strip():
     st.session_state.chat_history.append(("You", user_input, datetime.now().strftime("%H:%M:%S")))
 
     # Generate chatbot response using POST API call
-    api_url = "https://example.com/chatbot-api"  # Replace with your chatbot API endpoint
-    payload = {"message": user_input}
-    response = post_api_call(api_url, payload)
+   
 
-    bot_response = response.get("response", "I'm not sure how to respond to that.")
+    bot_response = chatbot_response(user_input)
 
     # Add chatbot response to chat history
     st.session_state.chat_history.append(("Chatbot", bot_response, datetime.now().strftime("%H:%M:%S")))
