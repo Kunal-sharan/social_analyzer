@@ -31,17 +31,11 @@ st.header("🔐 Chatbot")
 
 # Display chat history in a scrollable container with fixed height and border
 with st.container():
-    st.markdown(
-        """
-        <div style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto;">
-        """,
-        unsafe_allow_html=True,
-    )
-    chat_display = "<br>".join(
-        [f"<strong>{sender}</strong> ({timestamp}): {text}" for sender, text, timestamp in st.session_state.chat_history]
-    )
-    st.markdown(chat_display, unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.write("### Chat History")
+    chat_placeholder = st.empty()
+    with chat_placeholder.container():
+        for sender, text, timestamp in st.session_state.chat_history:
+            st.write(f"**{sender}** ({timestamp}): {text}")
 
 # User input for chatbot
 user_input = st.text_input("You:", "", key="user_input")
@@ -58,7 +52,7 @@ if st.button("Send") and user_input.strip():
     st.session_state.chat_history.append(("Chatbot", response, datetime.now().strftime("%H:%M:%S")))
 
     # Auto-scroll to the bottom by refreshing the container
-    st.rerun()
+    st.experimental_rerun()
 
 # Analytics Section
 def load_data(file_path):
