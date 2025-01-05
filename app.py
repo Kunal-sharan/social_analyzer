@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import datetime
+import requests
 
 # Define a function to handle chatbot responses
 def chatbot_response(user_input):
@@ -15,6 +16,17 @@ def chatbot_response(user_input):
 
     # Check for response or default to a fallback
     return responses.get(user_input.lower(), "I'm not sure how to respond to that. Can you rephrase?")
+
+# Function to make a POST API call
+def post_api_call(api_url, payload):
+    try:
+        response = requests.post(api_url, json=payload)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return {"error": f"API call failed with status code {response.status_code}"}
+    except Exception as e:
+        return {"error": str(e)}
 
 # Streamlit app configuration
 st.set_page_config(page_title="Chatbot & Analytics Dashboard", page_icon="🤖", layout="wide")
@@ -45,14 +57,30 @@ if st.button("Send") and user_input.strip():
     # Add user message to chat history
     st.session_state.chat_history.append(("You", user_input, datetime.now().strftime("%H:%M:%S")))
 
-    # Generate chatbot response
-    response = chatbot_response(user_input)
+    # Generate chatbot response using POST API call
+    api_url = "https://example.com/chatbot-api"  # Replace with your chatbot API endpoint
+    payload = {"message": user_input}
+    response = post_api_call(api_url, payload)
+
+    bot_response = response.get("response", "I'm not sure how to respond to that.")
 
     # Add chatbot response to chat history
-    st.session_state.chat_history.append(("Chatbot", response, datetime.now().strftime("%H:%M:%S")))
+    st.session_state.chat_history.append(("Chatbot", bot_response, datetime.now().strftime("%H:%M:%S")))
 
     # Auto-scroll to the bottom by refreshing the container
     st.rerun()
+
+# Example POST API call usage
+st.sidebar.header("Test API Call")
+api_url = st.sidebar.text_input("API URL", "https://example.com/api")
+payload = st.sidebar.text_area("Payload (JSON)", "{\"key\": \"value\"}")
+if st.sidebar.button("Call API"):
+    try:
+        payload_dict = eval(payload)  # Convert string to dictionary
+        api_response = post_api_call(api_url, payload_dict)
+        st.sidebar.write("Response:", api_response)
+    except Exception as e:
+        st.sidebar.write("Error:", str(e))
 
 # Analytics Section
 def load_data(file_path):
