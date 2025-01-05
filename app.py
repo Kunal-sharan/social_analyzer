@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import streamlit as st
 from datetime import datetime
 
 # Define a function to handle chatbot responses
@@ -18,22 +17,24 @@ def chatbot_response(user_input):
     return responses.get(user_input.lower(), "I'm not sure how to respond to that. Can you rephrase?")
 
 # Streamlit app configuration
-st.set_page_config(page_title="Chatbot", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Chatbot & Analytics Dashboard", page_icon="🤖", layout="wide")
 
 # App title
-st.title("🤖 Simple Streamlit Chatbot")
+st.title("🤖 Chatbot & Post Analytics Dashboard")
 
 # Initialize session state for chat history if it doesn't exist
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
+# Chatbot Section
+st.header("🔐 Chatbot")
 # Display chat history
 st.write("### Chat History")
 for message in st.session_state.chat_history:
     sender, text, timestamp = message
     st.markdown(f"**{sender}** ({timestamp}): {text}")
 
-# User input
+# User input for chatbot
 user_input = st.text_input("You:", "", key="user_input")
 
 # If the user submits input
@@ -48,15 +49,12 @@ if st.button("Send") and user_input.strip():
     st.session_state.chat_history.append(("Chatbot", response, datetime.now().strftime("%H:%M:%S")))
 
     # Clear the text input after submission
-    st.rerun()
+    st.experimental_rerun()
 
+# Analytics Section
 def load_data(file_path):
     return pd.read_csv(file_path)
 
-# Set page configuration
-st.set_page_config(page_title="Post Analytics Dashboard", layout="wide")
-
-# Sidebar
 st.sidebar.header("Upload CSV File")
 uploaded_file = st.sidebar.file_uploader("Upload your CSV file", type=["csv"])
 
@@ -75,7 +73,7 @@ if uploaded_file:
     filtered_data = data[data["PostType"].isin(post_types)]
 
     # Main content
-    st.title("Social Media Post Analytics")
+    st.header("🔍 Social Media Post Analytics")
 
     # Display filtered data
     st.subheader("Filtered Data")
@@ -174,5 +172,5 @@ if uploaded_file:
     st.plotly_chart(scatter_chart, use_container_width=True)
 
 else:
-    st.title("Welcome to the Post Analytics Dashboard")
+    st.header("Welcome to the Post Analytics Dashboard")
     st.write("Please upload a CSV file to get started.")
