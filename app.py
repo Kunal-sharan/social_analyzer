@@ -28,11 +28,14 @@ if "chat_history" not in st.session_state:
 
 # Chatbot Section
 st.header("🔐 Chatbot")
-# Display chat history
-st.write("### Chat History")
-for message in st.session_state.chat_history:
-    sender, text, timestamp = message
-    st.markdown(f"**{sender}** ({timestamp}): {text}")
+
+# Display chat history in a scrollable container
+with st.container():
+    chat_container = st.empty()
+    chat_display = "\n".join(
+        [f"**{sender}** ({timestamp}): {text}" for sender, text, timestamp in st.session_state.chat_history]
+    )
+    chat_container.markdown(chat_display, unsafe_allow_html=True)
 
 # User input for chatbot
 user_input = st.text_input("You:", "", key="user_input")
@@ -48,8 +51,11 @@ if st.button("Send") and user_input.strip():
     # Add chatbot response to chat history
     st.session_state.chat_history.append(("Chatbot", response, datetime.now().strftime("%H:%M:%S")))
 
-    # Clear the text input after submission
-    st.rerun()
+    # Auto-scroll to the bottom by refreshing the chat container
+    chat_display = "\n".join(
+        [f"**{sender}** ({timestamp}): {text}" for sender, text, timestamp in st.session_state.chat_history]
+    )
+    chat_container.markdown(chat_display, unsafe_allow_html=True)
 
 # Analytics Section
 def load_data(file_path):
