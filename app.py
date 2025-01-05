@@ -30,7 +30,7 @@ if "chat_history" not in st.session_state:
 st.header("🔐 Chatbot")
 
 # Display chat history in a scrollable container with fixed height and border
-with st.container():
+with st.container(border=True,height=500):
     st.write("### Chat History")
     chat_placeholder = st.empty()
     with chat_placeholder.container():
