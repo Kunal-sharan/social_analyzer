@@ -47,7 +47,7 @@ def chatbot():
 
     # App title
     st.title("🤖 Chatbot & Post Analytics Dashboard")
-
+    
     # Initialize session state for chat history if it doesn't exist
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
@@ -59,10 +59,14 @@ def chatbot():
     chat_placeholder = st.empty()
 
     # Dynamically update chat history without rerun
-    with chat_placeholder.container(border=True,height=300):
-        st.write("### Chat History")
+    with chat_placeholder.container(border=True,height=350):
         for sender, text, timestamp in st.session_state.chat_history:
-            st.write(f"**{sender}** ({timestamp}): {text}")
+            if sender=="You":
+                    user = st.chat_message('human')
+                    user.write(text)
+            else:
+                    ai=st.chat_message('ai')
+                    ai.write(text)   
 
     # User input for chatbot
     user_input = st.text_input("You:", "", key="user_input")
@@ -82,7 +86,12 @@ def chatbot():
         with chat_placeholder.container(border=True,height=300):
             st.write("### Chat History")
             for sender, text, timestamp in st.session_state.chat_history:
-                st.write(f"**{sender}** ({timestamp}): {text}")
+                if sender=="You":
+                    user = st.chat_message('human')
+                    user.write(text)
+                else:
+                    ai=st.chat_message('ai')
+                    ai.write(text)
 
 # Function to convert image to base64
 def image_to_base64(image_path):
