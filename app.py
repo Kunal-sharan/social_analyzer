@@ -39,11 +39,8 @@ def chatbot():
         }    
         response = requests.post(url, headers=headers, json=data)
         result = response.json()
-        ans=result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
-            # Check for response or default to a fallback
+        ans = result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
         return ans
-
-    # Function to make a POST API call
 
     # Streamlit app configuration
     # st.set_page_config(page_title="Chatbot & Analytics Dashboard", page_icon="🤖", layout="wide")
@@ -59,12 +56,13 @@ def chatbot():
     st.header("🔐 Chatbot")
 
     # Display chat history in a scrollable container with fixed height and border
-    with st.container(border=True,height=300):
+    chat_placeholder = st.empty()
+
+    # Dynamically update chat history without rerun
+    with chat_placeholder.container(border=True,height=300):
         st.write("### Chat History")
-        chat_placeholder = st.empty()
-        with chat_placeholder.container():
-            for sender, text, timestamp in st.session_state.chat_history:
-                st.write(f"**{sender}** ({timestamp}): {text}")
+        for sender, text, timestamp in st.session_state.chat_history:
+            st.write(f"**{sender}** ({timestamp}): {text}")
 
     # User input for chatbot
     user_input = st.text_input("You:", "", key="user_input")
@@ -75,13 +73,16 @@ def chatbot():
         st.session_state.chat_history.append(("You", user_input, datetime.now().strftime("%H:%M:%S")))
 
         # Generate chatbot response using POST API call
-    
-
         bot_response = chatbot_response(user_input)
 
         # Add chatbot response to chat history
         st.session_state.chat_history.append(("Chatbot", bot_response, datetime.now().strftime("%H:%M:%S")))
 
+        # Update the placeholder content
+        with chat_placeholder.container(border=True,height=300):
+            st.write("### Chat History")
+            for sender, text, timestamp in st.session_state.chat_history:
+                st.write(f"**{sender}** ({timestamp}): {text}")
 
 # Function to convert image to base64
 def image_to_base64(image_path):
