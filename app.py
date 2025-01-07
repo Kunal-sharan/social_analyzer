@@ -44,16 +44,9 @@ def chatbot():
 
     # Streamlit app configuration
     # st.set_page_config(page_title="Chatbot & Analytics Dashboard", page_icon="🤖", layout="wide")
-
-    # App title
-    st.title("🤖 Chatbot & Post Analytics Dashboard")
-    
     # Initialize session state for chat history if it doesn't exist
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
-
-    # Chatbot Section
-    st.header("🔐 Chatbot")
 
     # Display chat history in a scrollable container with fixed height and border
     chat_placeholder = st.empty()
