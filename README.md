@@ -7,7 +7,7 @@ In today’s digital age, social media is an essential tool for personal brandin
 - **Track Performance**: See which posts are performing well and which aren’t. Get a clear view of your top-performing content to replicate success.
 - **Optimize Strategy**: Fine-tune your content strategy by analyzing engagement metrics and connecting better with your audience.
 - **Save Time & Effort**: Get actionable insights quickly, without spending hours manually analyzing posts and performance.
-
+![logo]()
 ## Key Features 🚀
 
 ### Engagement Metrics
@@ -19,14 +19,14 @@ Our website tracks essential engagement metrics:
 - **Total Clicks**: 1406 🖱️
 
 These metrics provide a comprehensive overview of your social media performance.
-
+![logo]()
 ### Visual Analytics 📊
 One of the most exciting features is the interactive **chart** that visualizes likes by post type. For example:
 - **Video posts** generate the most engagement.
 - **User-generated content** and **poll posts** follow closely.
 
 This feature helps you understand which content types resonate most with your audience.
-
+![logo]()
 ### Filtering Options 🔍
 The website allows filtering by post types such as:
 - Giveaways 🎁
@@ -34,7 +34,7 @@ The website allows filtering by post types such as:
 - Behind-the-scenes videos 🎬
 
 Tailor your content strategy to specific post types and focus on the most relevant data.
-
+![logo]()
 ### Sentiment & Trend Analysis 📈
 - **Sentiment Analysis** gives an overview of how your audience feels about your content.
 - **Trend Analysis** identifies trending topics, helping you stay ahead and make real-time adjustments to your strategy.
@@ -49,20 +49,20 @@ The website is powered by **Streamlit**, which provides an interactive front-end
 
 ### Powered by DataStax DB
 Behind the scenes, **DataStax DB**, a scalable NoSQL database, handles massive data from multiple platforms. This ensures fast and efficient processing for **real-time analysis**.
-
+![logo]()
 ## Team & Hackathon Participation 👩‍💻👨‍💻
 
 This project was developed by a dedicated team from **Shiv Nadar University**:
 - **Kunal Sharan**
 - **Ipsita Kar**
 - **Sanskar Sugandhi**
-
+![logo]()
 We built this project during the **Level SuperMind Hackathon**, led by experts like **Hitesh Choudhary** and **Ranveer Allahabadia**. The challenge was to simulate and analyze social media engagement data, using tools like **DataStax Astra DB** and **GPT** for powerful insights.
 
 ## Conclusion 🎯
 
 The **Social Media Post Analytics** website is the perfect tool to level up your social media game. Whether you're managing a personal brand, business, or just curious about your performance, this tool provides detailed engagement insights powered by **LangFlow** and **DataStax**. Make data-driven decisions and improve your strategy!
-
+![logo]()
 **Thank you for your time!** 🙏
 
 ## Feel free to explore and contribute to this repository!
