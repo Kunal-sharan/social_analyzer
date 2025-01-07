@@ -60,7 +60,7 @@ def chatbot():
                     user.write(text)
             else:
                     ai=st.chat_message('ai')
-                    ai.code(text)   
+                    ai.write(text)   
 
     # User input for chatbot
     user_input = st.text_input("You:", "", key="user_input")
@@ -86,7 +86,7 @@ def chatbot():
                     user.write(text)
                 else:
                     ai=st.chat_message('ai')
-                    ai.code(text)
+                    ai.write(text)
 
 # Function to convert image to base64
 def image_to_base64(image_path):
