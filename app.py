@@ -73,6 +73,7 @@ def chatbot():
 
     # If the user submits input
     if st.button("Send") and user_input.strip():
+      with st.spinner('Wait for it...'):
         # Add user message to chat history
         st.session_state.chat_history.append(("You", user_input, datetime.now().strftime("%H:%M:%S")))
 
