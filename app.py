@@ -135,7 +135,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Load the girl image
-image_path_girl = "GIRL.jpg"
+image_path_girl = "./Images -/GIRL.jpg"
 image_base64_girl = load_image(image_path_girl)
 
 # st.markdown(f"""
