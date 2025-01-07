@@ -274,7 +274,7 @@ st.markdown(
 
     div[data-testid="stButton"] > button[kind="tertiary"] {
         position: fixed;
-        bottom: 1.25rem; 
+        bottom: 1rem; 
         right: 1.25rem; 
         background-color: blue;
         color: white;
