@@ -16,7 +16,7 @@ headers = {
 
 
 # Define a function to handle chatbot responses
-@st.dialog("start")
+@st.dialog("Ask AI for Agent")
 def chatbot():
     def chatbot_response(user_input):
         # Simple predefined responses (you can extend this logic or integrate an AI model)
@@ -57,7 +57,7 @@ def chatbot():
         for sender, text, timestamp in st.session_state.chat_history:
             if sender=="You":
                     user = st.chat_message('human')
-                    user.write(text)
+                    user.code(text)
             else:
                     ai=st.chat_message('ai')
                     ai.write(text)   
@@ -83,7 +83,7 @@ def chatbot():
             for sender, text, timestamp in st.session_state.chat_history:
                 if sender=="You":
                     user = st.chat_message('human')
-                    user.write(text)
+                    user.code(text)
                 else:
                     ai=st.chat_message('ai')
                     ai.write(text)
