@@ -587,3 +587,5 @@ if len(file_path)>0:
 else:
     st.header("Welcome to the Post Analytics Dashboard")
     st.write("Please upload a CSV file to get started.")
+
+    
