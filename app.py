@@ -6,6 +6,8 @@ from datetime import datetime
 import base64
 import requests
 import json
+from streamlit_extras.stylable_container import stylable_container
+
 
 url = "https://api.langflow.astra.datastax.com/lf/8deaa9a3-1b60-49ef-884b-17786f382ab9/api/v1/run/5f1244cc-ded6-458a-8c7a-4376fb5707ed?stream=false"
 
@@ -60,7 +62,17 @@ def chatbot():
                     user.write(text)
             else:
                     ai=st.chat_message('ai')
-                    ai.code(text)   
+                    with stylable_container(
+                                            "codeblock",
+                                            """
+                                            code {
+                                                white-space: pre-wrap !important;
+                                            }
+                                            """,
+                                        ):
+                                            ai.code(
+                                                text
+                                            )   
 
     # User input for chatbot
     user_input = st.text_input("You:", "", key="user_input")
@@ -86,7 +98,17 @@ def chatbot():
                     user.write(text)
                 else:
                     ai=st.chat_message('ai')
-                    ai.code(text)
+                    with stylable_container(
+                                            "codeblock",
+                                            """
+                                            code {
+                                                white-space: pre-wrap !important;
+                                            }
+                                            """,
+                                        ):
+                                            ai.code(
+                                                text
+                                            )
 
 # Function to convert image to base64
 def image_to_base64(image_path):
