@@ -259,7 +259,7 @@ st.markdown(
     div[data-testid="stButton"] > button[kind="primary"] {
         background-color: #E38E49;
         color: white;
-        font-size: 5rem; !important
+        font-size: 6rem; !important
         font-weight: bold;
         border-radius: 0.625rem; /* 10px = 0.625rem */
         border: 0.125rem solid white; /* 2px = 0.125rem */
@@ -274,7 +274,7 @@ st.markdown(
 
     div[data-testid="stButton"] > button[kind="tertiary"] {
         position: fixed;
-        bottom: 2.5rem; 
+        bottom: 3rem; 
         right: 2.5rem; 
         background-color: blue;
         color: white;
