@@ -144,36 +144,121 @@ st.markdown("""
 image_path_girl = "GIRL.jpg"
 image_base64_girl = load_image(image_path_girl)
 
-# Display the floating girl image with 5x scale and animation
+# st.markdown(f"""
+# <div style="display: flex; justify-content: center; align-items: center; padding: 50px;">
+#     <img src="data:image/webp;base64,{image_base64_girl}" 
+#          style="width: 15rem; height: 15rem; border-radius: 50%; 
+#                 box-shadow: 5px 5px 15px rgba(0,0,0,0.5); 
+#                 animation: floating 3s ease-in-out infinite;">
+# </div>
+# <style>
+#     @keyframes floating {{
+#         0% {{
+#             transform: translateY(0);
+#         }}
+#         50% {{
+#             transform: translateY(-1.25rem); /* Adjusted for a proportional floating effect */
+#         }}
+#         100% {{
+#             transform: translateY(0);
+#         }}
+#     }}
+# </style>
+# """, unsafe_allow_html=True)
+# st.markdown(f"""
+# <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: center; padding: 20px;">
+#     <div style="display: flex; justify-content: flex-start;">
+#         <img src="data:image/webp;base64,{image_base64_girl}" 
+#              style="width: 15rem; height: 15rem; border-radius: 50%; 
+#                     box-shadow: 5px 5px 15px rgba(0,0,0,0.5); 
+#                     animation: floating 3s ease-in-out infinite;">
+#     </div>
+#     <div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px;">
+#         <p>Grid Item 1</p>
+#     </div>
+#     <div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px;">
+#         <p>Grid Item 2</p>
+#     </div>
+#     <div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px;">
+#         <p>Grid Item 3</p>
+#     </div>
+# </div>
+# <style>
+#     @keyframes floating {{
+#         0% {{
+#             transform: translateY(0);
+#         }}
+#         50% {{
+#             transform: translateY(-1.25rem);
+#         }}
+#         100% {{
+#             transform: translateY(0);
+#         }}
+#     }}
+#     /* Responsive grid */
+#     @media screen and (max-width: 768px) {{
+#         div[style*="grid-template-columns"] {{
+#             grid-template-columns: 1fr;
+#         }}
+#     }}
+# </style>
+# """, unsafe_allow_html=True)
 st.markdown(f"""
-<div style="background-color: #0F0F0F; color: #00FFB2; padding: 50px; display: flex; align-items: center; border-radius: 20px;">
-    <img src="data:image/webp;base64,{image_base64_girl}" 
-         style="width: 250px; height: 250px; border-radius: 50%; 
-                box-shadow: 5px 5px 15px rgba(0,0,0,0.5); 
-                transform: scale(5);
-                animation: floating 3s ease-in-out infinite;">
-    <div style="color: #FFFFFF; width: 70%; padding-top: 50px;">
-        <h3 style="font-family: 'Cursive', sans-serif; color: #FF00FF; text-shadow: 2px 2px 4px #000000;">💬 Chatbot</h3>
-        <p style="font-size: 20px;">Welcome! Ask me about your social media data:</p>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; align-items: center; padding: 2rem; background-color: #121212; border-radius: 1rem;">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="data:image/webp;base64,{image_base64_girl}" 
+             style="width: 18rem; height: 18rem; border-radius: 50%; 
+                    box-shadow: 0 0 1.5rem rgba(255, 255, 255, 1); 
+                    animation: floating 3s ease-in-out infinite; 
+                    position: relative;">
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+        <div style="background-color: #1E1E1E; padding: 1.5rem; border-radius: 1rem; text-align: center; color: #FFFFFF;">
+            <h4 style="color: #00FFB2;">Help Understand Your Audience Better</h4>
+        </div>
+        <div style="background-color: #1E1E1E; padding: 1.5rem; border-radius: 1rem; text-align: center; color: #FFFFFF;">
+            <h4 style="color: #00FFB2;">Help Analyze Competitors</h4>
+        </div>
+        <div style="background-color: #1E1E1E; padding: 1.5rem; border-radius: 1rem; text-align: center; color: #FFFFFF;">
+            <h4 style="color: #00FFB2;">Plan a Strategy that Really Works</h4>
+        </div>
     </div>
 </div>
+
 <style>
     @keyframes floating {{
         0% {{
             transform: translateY(0);
         }}
         50% {{
-            transform: translateY(-20px);
+            transform: translateY(-1.25rem);
         }}
         100% {{
             transform: translateY(0);
         }}
     }}
+
+    /* Responsive Layout for Small Screens */
+    @media screen and (max-width: 48rem) {{
+        div[style*="grid-template-columns: repeat(2, 1fr);"] {{
+            display: grid !important;
+            grid-template-columns: 1fr !important; /* Single-column layout */
+            gap: 1.5rem;
+        }}
+        div[style*="grid-template-columns: 1fr;"] {{
+            grid-template-columns: 1fr !important;
+        }}
+    }}
+
+    /* Large Screens: Adjust Grid */
+    @media screen and (min-width: 64rem) {{
+        div[style*="grid-template-columns: repeat(2, 1fr);"] {{
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
+        }}
+    }}
 </style>
 """, unsafe_allow_html=True)
-
-
-
 
 if st.button("Start Chat"):
     chatbot()
