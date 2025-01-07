@@ -43,7 +43,7 @@ Tailor your content strategy to specific post types and focus on the most releva
 Get instant answers and insights from the AI-powered chatbot integrated with the platform.
 
 ## Technology Stack 🛠️
-![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/langflow_ss_1.png)
+
 ### Built with Streamlit & LangFlow
 The website is powered by **Streamlit**, which provides an interactive front-end, and **LangFlow**, which integrates **Natural Language Processing (NLP)** for deeper insights from social media posts and hashtags.
 ![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/langflow_ss_2.png)
