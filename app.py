@@ -256,8 +256,7 @@ st.markdown(f"""
 
 if st.button("Start Chat"):
     chatbot()
-is_dark_mode = st.get_option('theme.dark')
-st.write(is_dark_mode)
+
 st.markdown("""
     <style>
     .stApp {
