@@ -16,7 +16,7 @@ headers = {
 
 
 # Define a function to handle chatbot responses
-@st.dialog("Ask AI for Agent")
+@st.dialog("Ask AI Agent")
 def chatbot():
     def chatbot_response(user_input):
         # Simple predefined responses (you can extend this logic or integrate an AI model)
@@ -57,10 +57,10 @@ def chatbot():
         for sender, text, timestamp in st.session_state.chat_history:
             if sender=="You":
                     user = st.chat_message('human')
-                    user.code(text)
+                    user.write(text)
             else:
                     ai=st.chat_message('ai')
-                    ai.write(text)   
+                    ai.code(text)   
 
     # User input for chatbot
     user_input = st.text_input("You:", "", key="user_input")
@@ -83,10 +83,10 @@ def chatbot():
             for sender, text, timestamp in st.session_state.chat_history:
                 if sender=="You":
                     user = st.chat_message('human')
-                    user.code(text)
+                    user.write(text)
                 else:
                     ai=st.chat_message('ai')
-                    ai.write(text)
+                    ai.code(text)
 
 # Function to convert image to base64
 def image_to_base64(image_path):
@@ -274,8 +274,8 @@ st.markdown(
 
     div[data-testid="stButton"] > button[kind="tertiary"] {
         position: fixed;
-        bottom: 2rem; 
-        right: 1.5rem; 
+        bottom: 1.25rem; 
+        right: 1.25rem; 
         background-color: blue;
         color: white;
         font-size: 1rem;
