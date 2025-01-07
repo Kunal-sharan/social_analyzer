@@ -43,7 +43,8 @@ def chatbot():
         return ans
 
     # Streamlit app configuration
-    # st.set_page_config(page_title="Chatbot & Analytics Dashboard", page_icon="🤖", layout="wide")
+
+    
     # Initialize session state for chat history if it doesn't exist
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
@@ -66,7 +67,7 @@ def chatbot():
 
     # If the user submits input
     if st.button("Send") and user_input.strip():
-      with st.spinner('Wait for it...'):
+     with st.spinner('Wait for it...'):
         # Add user message to chat history
         st.session_state.chat_history.append(("You", user_input, datetime.now().strftime("%H:%M:%S")))
 
@@ -127,10 +128,9 @@ def load_image(image_path):
 # Custom CSS for enhanced styling and animations
 st.set_page_config(layout="wide")
 # Main UI layout
-st.title("Social Media Analyzer")
 st.markdown(""" 
-<div style="text-align: center; color: #00FFB2;">
-    <h2>AI-powered Social Media Insights</h2>
+<div style="text-align: center; color: white;">
+    <h1>AI-powered Social Media Insights</h2>
 </div>
 """, unsafe_allow_html=True)
 
@@ -253,10 +253,55 @@ st.markdown(f"""
     }}
 </style>
 """, unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    div[data-testid="stButton"] > button[kind="primary"] {
+        background-color: red;
+        color: white;
+        font-size: 5rem; !important
+        font-weight: bold;
+        border-radius: 0.625rem; /* 10px = 0.625rem */
+        border: 0.125rem solid darkred; /* 2px = 0.125rem */
+        padding: 0.625rem 1.25rem; /* 10px = 0.625rem, 20px = 1.25rem */
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    div[data-testid="stButton"] > button[kind="primary"]:hover {
+        background-color: darkred;
+        transform: scale(1.1);
+    }
 
-if st.button("Start Chat"):
+    div[data-testid="stButton"] > button[kind="tertiary"] {
+        position: fixed;
+        bottom: 1.25rem; 
+        right: 1.25rem; 
+        background-color: blue;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 3.125rem; /* 50px = 3.125rem */
+        padding: 0.9375rem; /* 15px = 0.9375rem */
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 4px = 0.25rem, 8px = 0.5rem */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 1000;
+    }
+    div[data-testid="stButton"] > button[kind="tertiary"]:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.3); /* 6px = 0.375rem, 12px = 0.75rem */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+if st.button("Ask AI for Social Media Insights",type='primary',use_container_width=True):
     chatbot()
-
+if st.button("Ask AI",type='tertiary'):
+    chatbot()        
 st.markdown("""
     <style>
     .stApp {
