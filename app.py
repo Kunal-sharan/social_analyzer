@@ -100,21 +100,21 @@ team_data = [
         "year": "3rd Year, Shiv Nadar University Noida",
         "linkedin": "https://www.linkedin.com/in/kunal-sharan-4b018a260/",
         "github": "https://github.com/Kunal-sharan",
-        "image": image_to_base64("Images-/kunal.jpg")  # Base64 encoding for image
+        "image": image_to_base64("Images -/kunal.jpg")  # Base64 encoding for image
     },
     {
         "name": "Ipsita Kar",
         "year": "3rd Year, Shiv Nadar University Chennai",
         "linkedin": "https://www.linkedin.com/in/ipsita-kar-/",
         "github": "https://github.com/ipsita-kar",
-        "image": image_to_base64("Images-/ipsita.jpg")  # Base64 encoding for image
+        "image": image_to_base64("Images -/ipsita.jpg")  # Base64 encoding for image
     },
     {
         "name": "Sanskar Sugandhi",
         "year": "3rd Year, Shiv Nadar University Noida",
         "linkedin": "https://in.linkedin.com/in/sanskar-sugandhi-89200b264",
         "github": "https://github.com/SanskarGithub07",
-        "image": image_to_base64("Images-/sanskar.jpg")  # Base64 encoding for image
+        "image": image_to_base64("Images -/sanskar.jpg")  # Base64 encoding for image
     }
 ]
 
