@@ -257,30 +257,31 @@ st.markdown(
     """
     <style>
     div[data-testid="stButton"] > button[kind="primary"] {
-        background-color: red;
+        background-color: #E38E49;
         color: white;
         font-size: 5rem; !important
         font-weight: bold;
         border-radius: 0.625rem; /* 10px = 0.625rem */
-        border: 0.125rem solid darkred; /* 2px = 0.125rem */
+        border: 0.125rem solid white; /* 2px = 0.125rem */
         padding: 0.625rem 1.25rem; /* 10px = 0.625rem, 20px = 1.25rem */
         cursor: pointer;
         transition: transform 0.3s ease, background-color 0.3s ease;
     }
     div[data-testid="stButton"] > button[kind="primary"]:hover {
-        background-color: darkred;
+        background-color: red;
         transform: scale(1.1);
     }
 
     div[data-testid="stButton"] > button[kind="tertiary"] {
         position: fixed;
-        bottom: 1.25rem; 
-        right: 1.25rem; 
+        bottom: 2.5rem; 
+        right: 2.5rem; 
         background-color: blue;
         color: white;
         font-size: 1rem;
         font-weight: bold;
         border-radius: 3.125rem; /* 50px = 3.125rem */
+        border: 0.125rem solid white
         padding: 0.9375rem; /* 15px = 0.9375rem */
         border: none;
         cursor: pointer;
