@@ -43,10 +43,11 @@ Tailor your content strategy to specific post types and focus on the most releva
 Get instant answers and insights from the AI-powered chatbot integrated with the platform.
 
 ## Technology Stack 🛠️
-![logo]()
+![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/langflow_ss_1.png)
 ### Built with Streamlit & LangFlow
 The website is powered by **Streamlit**, which provides an interactive front-end, and **LangFlow**, which integrates **Natural Language Processing (NLP)** for deeper insights from social media posts and hashtags.
-![logo]()
+![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/langflow_ss_2.png)
+
 ### Powered by DataStax DB
 Behind the scenes, **DataStax DB**, a scalable NoSQL database, handles massive data from multiple platforms. This ensures fast and efficient processing for **real-time analysis**.
 ![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/boy.jpg)
@@ -63,7 +64,7 @@ We built this project during the **Level SuperMind Hackathon**, led by experts l
 ## Conclusion 🎯
 
 The **Social Media Post Analytics** website is the perfect tool to level up your social media game. Whether you're managing a personal brand, business, or just curious about your performance, this tool provides detailed engagement insights powered by **LangFlow** and **DataStax**. Make data-driven decisions and improve your strategy!
-![logo]()
+![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/better.webp)
 **Thank you for your time!** 🙏
 
 ## Feel free to explore and contribute to this repository!
