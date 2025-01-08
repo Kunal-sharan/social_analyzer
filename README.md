@@ -50,7 +50,7 @@ The website is powered by **Streamlit**, which provides an interactive front-end
 
 ### Powered by DataStax DB
 Behind the scenes, **DataStax DB**, a scalable NoSQL database, handles massive data from multiple platforms. This ensures fast and efficient processing for **real-time analysis**.
-![logo](https://github.com/Kunal-sharan/social_analyzer/blob/main/Images%20-/boy.jpg)
+
 ## Team & Hackathon Participation 👩‍💻👨‍💻
 
 This project was developed by a dedicated team from **Shiv Nadar University**:
