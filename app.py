@@ -208,10 +208,10 @@ st.markdown(f"""
     </div>
     <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
         <div style="background-color: #1E1E1E; padding: 1.5rem; border-radius: 1rem; text-align: center; color: #FFFFFF;">
-            <h4 style="color: #00FFB2;">Help Understand Your Audience Better</h4>
+            <h4 style="color: #00FFB2;">AI-Powered Sentiment Analysis</h4>
         </div>
         <div style="background-color: #1E1E1E; padding: 1.5rem; border-radius: 1rem; text-align: center; color: #FFFFFF;">
-            <h4 style="color: #00FFB2;">Help Analyze Competitors</h4>
+            <h4 style="color: #00FFB2;">Content Performance Tracker</h4>
         </div>
         <div style="background-color: #1E1E1E; padding: 1.5rem; border-radius: 1rem; text-align: center; color: #FFFFFF;">
             <h4 style="color: #00FFB2;">Plan a Strategy that Really Works</h4>
