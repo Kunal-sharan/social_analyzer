@@ -42,7 +42,7 @@ def chatbot():
         result = response.json()
         try:     
          ans = result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
-         print(ans)   
+         st.write(result)   
         except:
             ans = "try again"
         return ans
