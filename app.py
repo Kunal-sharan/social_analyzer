@@ -38,8 +38,13 @@ def chatbot():
             }
         }    
         response = requests.post(url, headers=headers, json=data)
+        
         result = response.json()
-        ans = result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
+        try:     
+         ans = result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
+         print(ans)   
+        except:
+            ans = "try again"
         return ans
 
     # Streamlit app configuration
