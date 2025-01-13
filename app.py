@@ -40,6 +40,7 @@ def chatbot():
         response = requests.post(url, headers=headers, json=data)
         
         result = response.json()
+        st.write(result)
         try:     
          ans = result.get("outputs")[0].get("outputs")[0].get("results").get("message").get("data").get("text")
          st.write(result)   
